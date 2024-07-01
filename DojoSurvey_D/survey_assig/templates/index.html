@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style_form.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <form name="myForm" action="/result" method="POST" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <div class="Form-group">
+                <div>
+                    <label for="name">Your Name:</label>
+                    <input type="text" name="First_name" placeholder="Your First Name...">
+                </div>
+                <div>
+                    <span>Gender Identity:</span>
+                    <input type="radio" name="Gender" value="Male" id="Male">
+                    <label for="Male">Male</label>
+                    <input type="radio" name="Gender" value="Female" id="Female">
+                    <label for="Female">Female</label>
+                </div>
+                <div>
+                    <label for="Dojo_Location">Dojo Location:</label>
+                    <select name="Dojo_Location">
+                        <option value="San Jose">San Jose</option>
+                        <option value="Oakland">Oakland</option>
+                        <option value="Burbank">Burbank</option>
+                        <option value="Palestine">Palestine</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="Favourite_Language">Favourite Language:</label><br>
+                    <input type="checkbox" name="Python" id="Python" value="Python">
+                    <label for="Python">Python</label>
+                    <input type="checkbox" name="CCharp" id="CCharp" value="CCharp">
+                    <label for="CCharp">CCharp</label>
+                    <input type="checkbox" name="Java" id="Java" value="Java">
+                    <label for="Java">Java</label>
+                </div>
+                <div class="commentArea">
+                    <label for="comment">Comment (Optional):</label>
+                    <div>
+                        <textarea name="comment" cols="80" rows="4"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <input type='submit' class="submitButton" value="Submit">
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="{% static 'js/myscripts.js' %}"></script>
+
+</body>
+
+</html>

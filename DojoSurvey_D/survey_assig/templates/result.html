@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Result</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/result.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Submitted info</h1>
+        <ul class="list-group">
+            <li class="list-group-item"><span>Name:</span> {{ data.First_name }}</li>
+            <li class="list-group-item"><span>Gender:</span> {{ data.Gender }}</li>
+            <li class="list-group-item"><span>Dojo Location:</span> {{ data.Dojo_Location }}</li>
+            <li class="list-group-item"><span>Favourite Languages:</span>
+                <ul>
+                    {% if data.Python %}
+                        <li>{{ data.Python }}</li>
+                    {% endif %}
+                    {% if data.CCharp %}
+                        <li>{{ data.CCharp }}</li>
+                    {% endif %}
+                    {% if data.Java %}
+                        <li>{{ data.Java }}</li>
+                    {% endif %}
+                </ul>
+            </li>
+            <li class="list-group-item"><span>Comment:</span> {{ data.comment }}</li>
+        </ul>
+        <button onclick="goBack()" class="goBack" type="button">GoBack</button>
+    </div>
+    <script src="{% static 'js/myscripts.js' %}"></script>
+</body>
+</html>
